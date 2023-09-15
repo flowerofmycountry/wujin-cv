@@ -15,7 +15,7 @@
 1. 克隆项目
 
 ```bash
-  git clone https://github.com/flowerofmycountry/jupiter.git
+  git clone https://github.com/flowerofmycountry/wujin-cv.git
 ```
 
 2. 编写 `cv` 文件夹
