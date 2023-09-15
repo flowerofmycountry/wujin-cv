@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@octokit/rest": "^20.0.1",
     "highlight.js": "^11.8.0",
     "html-react-parser": "^4.2.2",
     "marked-emoji": "^1.2.4",
