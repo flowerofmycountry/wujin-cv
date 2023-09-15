@@ -1,10 +1,9 @@
 import Avatar from './components/Avatar';
-import PersonalInfo from './components/PersonalInfo';
 import CommonCard from './components/CommonCard';
 import bgNormal from './assets/docs.avif';
 import bgDark from './assets/docs-dark.avif';
 import getReactDom from './utils/parseMarkdownToReactDom';
-import info from './cv/personal';
+import infoMdString from './cv/personal/info.md?raw';
 
 const educationFiles = import.meta.glob('./cv/educations/*.md', { as: 'raw', eager: true });
 const projectFiles = import.meta.glob('./cv/projects/*.md', { as: 'raw', eager: true });
@@ -13,15 +12,12 @@ const conpanyFiles = import.meta.glob('./cv/companies/*.md', { as: 'raw', eager:
 // console.log(educations);
 
 function App() {
-  const photoObj = import.meta.glob('./cv/personal/photo.png', { as: 'url', eager: true });
-
-  // console.log(modules);
+  const photoObj = import.meta.glob('./cv/avatar/photo.png', { as: 'url', eager: true });
 
   const avatar =
     Object.keys(photoObj).length > 0
       ? photoObj[Object.keys(photoObj)[0]]
-      : info.avatar ??
-        'https://img0.baidu.com/it/u=1770506385,1568367831&fm=253&fmt=auto&app=138&f=JPEG?w=729&h=500';
+      : 'https://img0.baidu.com/it/u=1770506385,1568367831&fm=253&fmt=auto&app=138&f=JPEG?w=729&h=500';
 
   const educations = Object.values(educationFiles).map((content) =>
     getReactDom(content),
@@ -32,6 +28,8 @@ function App() {
   const projects = Object.values(projectFiles).map((content) =>
     getReactDom(content),
   ) as JSX.Element[];
+
+  const infoDom = getReactDom(infoMdString);
 
   return (
     <>
@@ -60,16 +58,8 @@ function App() {
         </div>
         <div className=' my-4 px-3 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3'>
           <div className='bg-white mx-2 shadow-xl rounded-lg overflow-hidden'>
-            <Avatar name={`${info.name} ${info.age}`} avatar={avatar} />
-            <PersonalInfo
-              email={info.email}
-              city={info.city}
-              job={info.job}
-              salary={info.salary}
-              tel={info.tel}
-              skills={info.skills}
-              langs={info.langs}
-            />
+            <Avatar avatar={avatar} />
+            <div className='markdown-body px-4 py-4'>{infoDom}</div>
           </div>
           <div className='mt-4 md:col-span-2 md:mt-0'>
             <div className='bg-white mx-2 shadow-xl rounded-lg overflow-hidden '>
