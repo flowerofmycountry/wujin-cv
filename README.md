@@ -1,34 +1,34 @@
-# markdown 简历
+<div align="center">
 
-通过编写 `markdown` 生成简历。
+English | [简体中文](./README.zh.md)
 
-![效果](/doc/template.png)
+</div>
 
-## 在线生成
+# Markdown Resume
 
-去 [markdown简历](http://markdown-resume.top/) 网站在线生成！
+Generate a resume by writing `markdown`.
 
-纯静态页面，不会收集您的任何个人信息。
+![effect](/doc/template.png)
 
-## 自定义生成
+## Online
 
-前端工程师可能希望高度定制，可 `clone` 本项目修改。
+Go to [Markdown Resume](http://markdown-resume.top/) to generate it online!
 
-#### 需要知识
+Purely static pages do not collect any personal information from you.
 
-- [x] markdown
-- [x] 可以启动项目
+## Customizable
 
-#### 如何生成
+Front-end developers may want to be highly customizable and can `clone` the project.
 
-1. 克隆项目
+#### How to custom
+
+1. Clone this project
 
 ```bash
   git clone https://github.com/flowerofmycountry/wujin-cv.git
 ```
 
-2. 编写 `cv` 文件夹
-   目录结构大概是这样：
+2. Create a 'cv' folder that looks like this：
 
 ```
 cv
@@ -52,8 +52,8 @@ cv
         8.骑士.md
 ```
 
-3. 替换 `src/cv` 文件夹
-4. 安装依赖 `&` 运行项目
+3. Replace the `src/cv` folder
+4. Install dependencies' & 'to run the project
 
 ```bash
   pnpm i
